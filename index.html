@@ -1,12 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Page</title>
+    <title>Gioco Vero o Falso</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { text-align: center; margin-top: 50px; }
+        .question { font-size: 20px; margin-bottom: 20px; }
+        .button { padding: 10px 20px; font-size: 18px; margin: 10px; cursor: pointer; }
+        .result { font-size: 22px; margin-top: 20px; }
+    </style>
 </head>
 <body>
-    <h1>Hello, world!</h1>
-    <p>This is my first GitHub Pages site.</p>
+    <div class="container">
+        <h1>Gioco Vero o Falso</h1>
+        <div class="question" id="question">Clicca per iniziare!</div>
+        <button class="button" onclick="answer(true)">Vero</button>
+        <button class="button" onclick="answer(false)">Falso</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            { text: "A routine is a part of a program.", answer: true },
+            { text: "As routines change, they gain stability.", answer: false },
+            { text: "Emergency care often calls for quick reaction and not protocol.", answer: true },
+            { text: "Surgeons work in the emergency department every weekend and are on duty in general surgery.", answer: false },
+            { text: "The patient in the Orthopaedic Out-Patients' Department still has his ankle in plaster.", answer: true },
+            { text: "The heart lies in the thorax and to the right of the sternum.", answer: false }
+            // Aggiungi tutte le altre domande qui, seguendo lo stesso formato
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function displayQuestion() {
+            document.getElementById("question").textContent = questions[currentQuestionIndex].text;
+            document.getElementById("result").textContent = "";
+        }
+
+        function answer(userAnswer) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (userAnswer === correctAnswer) {
+                score++;
+                document.getElementById("result").textContent = "Risposta corretta!";
+            } else {
+                document.getElementById("result").textContent = "Risposta sbagliata.";
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(displayQuestion, 1000); // Mostra la prossima domanda dopo 1 secondo
+            } else {
+                setTimeout(() => {
+                    document.getElementById("question").textContent = "Gioco finito! Punteggio: " + score;
+                    document.getElementById("result").textContent = "";
+                }, 1000);
+            }
+        }
+
+        // Inizializza la prima domanda
+        displayQuestion();
+    </script>
 </body>
 </html>

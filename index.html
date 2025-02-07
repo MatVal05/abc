@@ -3,217 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gioco di Domande - Medicina</title>
+    <title>Test Vero o Falso sulla Medicina</title>
     <style>
-        /* Base per la pagina */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             color: #333;
             margin: 0;
             padding: 0;
-            background-image: url('https://image.shutterstock.com/image-photo/medical-background-image-hospital-doctor-working-260nw-1386582171.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
-            animation: fadeIn 3s ease-in-out;
+            padding: 1em 0;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        h1 {
+            margin: 0;
         }
-
-        .content {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+        .section {
             margin: 20px;
         }
-
-        h1 {
-            color: #2c3e50;
-            font-size: 36px;
-            font-weight: bold;
-            animation: slideIn 2s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        p {
-            color: #34495e;
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            background-color: #1abc9c;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            font-size: 18px;
+        .statement {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
         }
-
-        .button:hover {
-            background-color: #16a085;
+        .true {
+            background-color: #d4edda;
         }
-
-        .questions-section {
-            background-color: #ffffff;
-            padding: 30px;
-            margin-top: 50px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            animation: zoomIn 2s ease;
+        .false {
+            background-color: #f8d7da;
         }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-
-        .question {
-            font-size: 24px;
-            margin: 15px 0;
-        }
-
-        .true-false-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .true-false-buttons button {
-            background-color: #2980b9;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
+        .toggle-btn {
             cursor: pointer;
-            transition: background-color 0.3s;
+            color: #007bff;
+            text-decoration: underline;
         }
-
-        .true-false-buttons button:hover {
-            background-color: #1abc9c;
+        .block-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
         }
-
-        .result {
-            margin-top: 20px;
-            font-size: 20px;
-            color: #e74c3c;
-            font-weight: bold;
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>Benvenuto al Gioco delle Domande - Medicina!</h1>
-        <p>Testa le tue conoscenze sul tema della medicina, rispondendo a domande vero o falso!</p>
-        <a href="#start" class="button">Inizia a giocare</a>
+<header>
+    <h1>Test Vero o Falso sulla Medicina</h1>
+</header>
+
+<div class="section">
+    <div class="block-header">Primo Blocco</div>
+    <div class="statement true">
+        <p><strong>1.</strong> A routine is a part of a program. <span class="toggle-btn">Vero</span></p>
     </div>
-
-    <div id="start" class="questions-section">
-        <div class="question" id="questionText">Domanda 1: Il cuore umano ha quattro camere.</div>
-        <div class="true-false-buttons">
-            <button onclick="checkAnswer(true)">Vero</button>
-            <button onclick="checkAnswer(false)">Falso</button>
-        </div>
-        <div id="resultText" class="result"></div>
+    <div class="statement false">
+        <p><strong>2.</strong> As routines change, they gain stability. <span class="toggle-btn">Falso</span></p>
     </div>
+    <div class="statement false">
+        <p><strong>3.</strong> Organization theory is in a critical position. <span class="toggle-btn">Falso</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>4.</strong> Routines or schedules in Clinical Practice are not easy to follow. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>5.</strong> Emergency care often calls for quick reaction and not protocol. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>6.</strong> Members of staff should follow protocols set out by the departments. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement false">
+        <p><strong>7.</strong> As the work is so long and tiring members of staff might work 12 hour shifts. <span class="toggle-btn">Falso</span></p>
+    </div>
+    <div class="statement false">
+        <p><strong>8.</strong> Surgeons work in the emergency department every weekend and are on duty in general surgery as well as the out patients' one weekend in three, for a couple of hours. <span class="toggle-btn">Falso</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>9.</strong> A typical day for a surgeon begins at 8.00 a.m. when he checks his duty schedule. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>10.</strong> The doctor sometimes finds time to calm and soothe the patients. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <!-- Add more statements for this block -->
 
-    <footer>
-        <p>Creato con passione per imparare e divertirsi con la medicina.</p>
-    </footer>
+    <div class="block-header">Secondo Blocco</div>
+    <div class="statement false">
+        <p><strong>1.</strong> The patient in the Orthopaedic Out-Patients' Department still has his ankle in plaster. <span class="toggle-btn">Falso</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>4.</strong> The patient has had an operation on his ankle some time before. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>6.</strong> The patient feels better thanks to the physiotherapy sessions. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>7.</strong> The doctor seems to be a little astonished by the patient. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <!-- Add more statements for this block -->
 
-    <script>
-        let currentQuestion = 0;
-        const questions = [
-            {
-                question: "Il cuore umano ha quattro camere.",
-                correctAnswer: true
-            },
-            {
-                question: "L'acido cloridrico nello stomaco è una sostanza base.",
-                correctAnswer: false
-            },
-            {
-                question: "Il sangue umano è composto principalmente da acqua.",
-                correctAnswer: true
-            },
-            {
-                question: "Gli antibiotici curano le malattie virali.",
-                correctAnswer: false
-            },
-            {
-                question: "Il cervello umano è diviso in due emisferi.",
-                correctAnswer: true
-            }
-        ];
+    <div class="block-header">Terzo Blocco</div>
+    <div class="statement false">
+        <p><strong>1.</strong> The National Health Service in the U.K. is a public fund. <span class="toggle-btn">Falso</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>2.</strong> England, Scotland, Wales and Northern Ireland have different healthcare management. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>3.</strong> In the U.K., primary healthcare is available for every citizen without discrimination. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <!-- Add more statements for this block -->
 
-        function checkAnswer(answer) {
-            const correct = questions[currentQuestion].correctAnswer;
-            const resultText = document.getElementById("resultText");
-            if (answer === correct) {
-                resultText.textContent = "Corretto!";
-                resultText.style.color = "#27ae60";
+    <div class="block-header">Quarto Blocco</div>
+    <div class="statement true">
+        <p><strong>1.</strong> The hospital can be compared to a small town because of the number of people who work there. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement true">
+        <p><strong>2.</strong> Some emergency events or procedures must be taken care of first. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <!-- Add more statements for this block -->
+
+    <div class="block-header">Quinto Blocco</div>
+    <div class="statement true">
+        <p><strong>10.</strong> Blood is generally received through the arteries and then sent out through the veins. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <!-- Add more statements for this block -->
+
+    <div class="block-header">Sesto Blocco</div>
+    <div class="statement true">
+        <p><strong>4.</strong> The heart muscle is also called the myocardium. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <div class="statement false">
+        <p><strong>1.</strong> The heart lies in the thorax and to the right of the sternum. <span class="toggle-btn">Falso</span></p>
+    </div>
+    <!-- Add more statements for this block -->
+
+    <div class="block-header">Settimo Blocco</div>
+    <div class="statement true">
+        <p><strong>2.</strong> Restriction in blood supply or oxygen shortage may lead to the patient's death. <span class="toggle-btn">Vero</span></p>
+    </div>
+    <!-- Add more statements for this block -->
+    
+    <!-- Continue adding the remaining blocks and statements -->
+
+</div>
+
+<script>
+    // Add any JavaScript functionality to toggle the visibility of answers or implement interactivity.
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    
+    toggleButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const statement = btn.parentElement;
+            if (statement.classList.contains('true')) {
+                alert('Questa affermazione è vera!');
             } else {
-                resultText.textContent = "Sbagliato!";
-                resultText.style.color = "#e74c3c";
+                alert('Questa affermazione è falsa!');
             }
-
-            currentQuestion++;
-            if (currentQuestion < questions.length) {
-                setTimeout(() => {
-                    document.getElementById("questionText").textContent = questions[currentQuestion].question;
-                    resultText.textContent = "";
-                }, 1000);
-            } else {
-                setTimeout(() => {
-                    document.getElementById("questionText").textContent = "Gioco Finito!";
-                    resultText.textContent = "";
-                }, 1000);
-            }
-        }
-    </script>
+        });
+    });
+</script>
 
 </body>
 </html>

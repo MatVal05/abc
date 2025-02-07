@@ -1,67 +1,84 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gioco Vero o Falso</title>
+    <title>Gioco di Domande - Medicina</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { text-align: center; margin-top: 50px; }
-        .question { font-size: 20px; margin-bottom: 20px; }
-        .button { padding: 10px 20px; font-size: 18px; margin: 10px; cursor: pointer; }
-        .result { font-size: 22px; margin-top: 20px; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://image.shutterstock.com/image-photo/medical-background-image-hospital-doctor-working-260nw-1386582171.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        p {
+            color: #34495e;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #16a085;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Gioco Vero o Falso</h1>
-        <div class="question" id="question">Clicca per iniziare!</div>
-        <button class="button" onclick="answer(true)">Vero</button>
-        <button class="button" onclick="answer(false)">Falso</button>
-        <div class="result" id="result"></div>
+
+    <div class="content">
+        <h1>Benvenuto al Gioco delle Domande - Medicina!</h1>
+        <p>Testa le tue conoscenze sul tema della medicina, rispondendo a domande vero o falso!</p>
+        <a href="#start" class="button">Inizia a giocare</a>
     </div>
 
-    <script>
-        const questions = [
-            { text: "A routine is a part of a program.", answer: true },
-            { text: "As routines change, they gain stability.", answer: false },
-            { text: "Emergency care often calls for quick reaction and not protocol.", answer: true },
-            { text: "Surgeons work in the emergency department every weekend and are on duty in general surgery.", answer: false },
-            { text: "The patient in the Orthopaedic Out-Patients' Department still has his ankle in plaster.", answer: true },
-            { text: "The heart lies in the thorax and to the right of the sternum.", answer: false }
-            // Aggiungi tutte le altre domande qui, seguendo lo stesso formato
-        ];
+    <footer>
+        <p>Creato con passione per imparare e divertirsi con la medicina.</p>
+    </footer>
 
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        function displayQuestion() {
-            document.getElementById("question").textContent = questions[currentQuestionIndex].text;
-            document.getElementById("result").textContent = "";
-        }
-
-        function answer(userAnswer) {
-            const correctAnswer = questions[currentQuestionIndex].answer;
-            if (userAnswer === correctAnswer) {
-                score++;
-                document.getElementById("result").textContent = "Risposta corretta!";
-            } else {
-                document.getElementById("result").textContent = "Risposta sbagliata.";
-            }
-
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                setTimeout(displayQuestion, 1000); // Mostra la prossima domanda dopo 1 secondo
-            } else {
-                setTimeout(() => {
-                    document.getElementById("question").textContent = "Gioco finito! Punteggio: " + score;
-                    document.getElementById("result").textContent = "";
-                }, 1000);
-            }
-        }
-
-        // Inizializza la prima domanda
-        displayQuestion();
-    </script>
 </body>
 </html>

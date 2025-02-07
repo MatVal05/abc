@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gioco di Domande - Medicina</title>
     <style>
+        /* Base per la pagina */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7fa;
+            background-color: #f0f8ff;
             color: #333;
             margin: 0;
             padding: 0;
@@ -20,6 +21,16 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .content {
@@ -35,6 +46,16 @@
             color: #2c3e50;
             font-size: 36px;
             font-weight: bold;
+            animation: slideIn 2s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
         }
 
         p {
@@ -58,12 +79,24 @@
             background-color: #16a085;
         }
 
-        .start-section {
+        .questions-section {
             background-color: #ffffff;
             padding: 30px;
             margin-top: 50px;
             border-radius: 10px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 2s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         footer {
@@ -74,6 +107,40 @@
             color: #7f8c8d;
             font-size: 14px;
         }
+
+        .question {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        .true-false-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .true-false-buttons button {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .true-false-buttons button:hover {
+            background-color: #1abc9c;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
@@ -84,16 +151,69 @@
         <a href="#start" class="button">Inizia a giocare</a>
     </div>
 
-    <!-- Sezione di gioco che si attiva quando l'utente clicca sul pulsante -->
-    <div id="start" class="start-section">
-        <h2>Domanda 1: Qual è il cuore umano?</h2>
-        <p>Il cuore umano è un organo che pompa il sangue attraverso il corpo.</p>
-        <!-- Aggiungi qui altre domande o informazioni sul gioco -->
+    <div id="start" class="questions-section">
+        <div class="question" id="questionText">Domanda 1: Il cuore umano ha quattro camere.</div>
+        <div class="true-false-buttons">
+            <button onclick="checkAnswer(true)">Vero</button>
+            <button onclick="checkAnswer(false)">Falso</button>
+        </div>
+        <div id="resultText" class="result"></div>
     </div>
 
     <footer>
         <p>Creato con passione per imparare e divertirsi con la medicina.</p>
     </footer>
+
+    <script>
+        let currentQuestion = 0;
+        const questions = [
+            {
+                question: "Il cuore umano ha quattro camere.",
+                correctAnswer: true
+            },
+            {
+                question: "L'acido cloridrico nello stomaco è una sostanza base.",
+                correctAnswer: false
+            },
+            {
+                question: "Il sangue umano è composto principalmente da acqua.",
+                correctAnswer: true
+            },
+            {
+                question: "Gli antibiotici curano le malattie virali.",
+                correctAnswer: false
+            },
+            {
+                question: "Il cervello umano è diviso in due emisferi.",
+                correctAnswer: true
+            }
+        ];
+
+        function checkAnswer(answer) {
+            const correct = questions[currentQuestion].correctAnswer;
+            const resultText = document.getElementById("resultText");
+            if (answer === correct) {
+                resultText.textContent = "Corretto!";
+                resultText.style.color = "#27ae60";
+            } else {
+                resultText.textContent = "Sbagliato!";
+                resultText.style.color = "#e74c3c";
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                setTimeout(() => {
+                    document.getElementById("questionText").textContent = questions[currentQuestion].question;
+                    resultText.textContent = "";
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    document.getElementById("questionText").textContent = "Gioco Finito!";
+                    resultText.textContent = "";
+                }, 1000);
+            }
+        }
+    </script>
 
 </body>
 </html>
